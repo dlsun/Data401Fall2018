@@ -2,6 +2,16 @@ import random
 
 
 class Player(object):
+    """Defines class for a Hex Player.
+    
+    Attributes:
+    - role (str): "black" or "white", depending on which
+        role the player has been assigned. This is set
+        when a Game is initialized.
+    """
+    
+    def __init__(self):
+        self.role = None
 
     def move(self, board):
         """Given current board, return the next move.
