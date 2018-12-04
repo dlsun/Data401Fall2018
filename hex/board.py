@@ -128,6 +128,17 @@ class Board:
             for r, c in zip(*np.where(self.state == 0))
         ]
     
+    def getBoardState(self):
+        """Get a Numpy array of the current board state.
+        
+        Returns (np.ndarray)
+        A self.size x self.size Numpy array. A cell is 1 if that
+        space is occupied by black. A cell is 2 if that space is
+        occupied by white. And a cell is 0 if that space is
+        unoccupied.
+        """
+        return self.state[1:self.size + 1, 1:self.size + 1]
+    
     def getStateForPlayer(self, player):
         """Get a Numpy array of the board state for the player.
         
@@ -141,7 +152,7 @@ class Board:
         space is unoccupied.
         """
         # Get the main board without the edges
-        main_board = self.state[1:self.size + 1, 1:self.size + 1]
+        main_board = self.getBoardState()
         
         # Return Numpy array, consisting of three types of entries:
         #   cell == player   => -1 + 2 =  1
